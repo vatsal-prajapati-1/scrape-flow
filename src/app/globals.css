@@ -112,6 +112,13 @@
   --sidebar-ring: oklch(0.527 0.154 150.069);
 }
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Base styles */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -119,4 +126,13 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* React Flow tweaks */
+.react-flow__attribution {
+  background: transparent !important;
+}
+
+.dark .react-flow__controls-button {
+  @apply !bg-accent;
 }
