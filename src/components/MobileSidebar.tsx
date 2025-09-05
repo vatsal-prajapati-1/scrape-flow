@@ -1,4 +1,5 @@
 "use client";
+import { routes } from "@/lib/data";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -6,10 +7,9 @@ import { Button, buttonVariants } from "./ui/button";
 import { MenuIcon } from "lucide-react";
 import Logo from "./Logo";
 import Link from "next/link";
-import { routes } from "@/lib/data";
 
 const MobileSidebar = () => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
   const activeRoute =
     routes.find(
@@ -18,8 +18,8 @@ const MobileSidebar = () => {
 
   return (
     <div className="block border-separate bg-background md:hidden ">
-      <div className="container flex items-center justify-between px-8">
-        <Sheet open={isOpen} onOpenChange={setOpen}>
+      <nav className="container flex items-center justify-between px-8">
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button variant={"ghost"} size={"icon"}>
               <MenuIcon />
@@ -41,7 +41,7 @@ const MobileSidebar = () => {
                         ? "sidebarActiveItem"
                         : "sidebarItem",
                   })}
-                  onClick={() => setOpen((prev) => !prev)}
+                  onClick={() => setIsOpen((prev) => !prev)}
                 >
                   <route.icon size={20} />
                   {route.label}
@@ -50,7 +50,7 @@ const MobileSidebar = () => {
             </div>
           </SheetContent>
         </Sheet>
-      </div>
+      </nav>
     </div>
   );
 };
