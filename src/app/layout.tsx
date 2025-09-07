@@ -26,7 +26,6 @@ export default function RootLayout({
           formButtonPrimary:
             "bg-primary hover:bg-primary/90 text-sm !shadow-none",
         },
-        
       }}
     >
       <html lang="en" suppressHydrationWarning>
